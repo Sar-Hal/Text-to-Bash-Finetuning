@@ -31,7 +31,7 @@ def generate_bash_command(model, tokenizer, nl_text, max_length=100):
     return bash_command
 
 def main():
-    model_path = "/kaggle/working/mistral-nl2bash/final_model"
+    model_path = "mistral-nl2bash/final_model"
     model = AutoModelForCausalLM.from_pretrained(model_path,  trust_remote_code=True, device_map="auto")
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     if tokenizer.pad_token is None:
