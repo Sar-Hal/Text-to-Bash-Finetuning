@@ -1,10 +1,11 @@
 import os
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from huggingface_hub.hf_api import HfFolder
 
 # Load Hugging Face token from environment variable
 HUGGINGFACETOKEN = os.environ.get("HUGGINGFACETOKEN")
-
+HfFolder.save_token(HUGGINGFACETOKEN)
 def format_prompt(nl, bash=None):
     prompt = f"### Instruction: Convert the following English description to a Bash command:\n\n{nl}\n\n### Response:"
     if bash:
